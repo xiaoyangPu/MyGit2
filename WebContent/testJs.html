@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+		// 解释性语言，从上往下依次执行！
+		
+		var str="hello";
+		var num=123;
+		var bur=true;
+		// js中，对象使用{"属性名"："值",xxx}来包含
+		var person={"name":"jack","age":18,"gender":"male"};
+		// 声明一个函数
+		// ① 直接声明一个带方法名的函数
+		function hello(name){
+			// 在窗口中弹出一个警告框，打印相关信息
+			alert(name);
+		}
+		// ②可以将匿名函数赋值给一个变量
+		var hi=function(name){
+			alert(name);
+		}
+		var a;
+		//查看变量的类型 ：  typeof
+		/* alert(typeof str);
+		alert(typeof num);
+		alert(typeof bur);
+		alert(typeof person);
+		alert(typeof hello); */
+		
+		/* alert(num-str);
+		alert(null);
+		alert(a); */
+		
+		/* hello("jack");
+		hi("tom"); */
+		
+		// window是js中系统已经初始化好的对象： 代表整个浏览器窗口！
+		/* window.onload=function(){
+			
+			alert("网页已经全部加载完！");
+		} */
+		
+		// Json对象
+		var person={"name":"jack","age":18,"gender":"male"};
+		// 由Json对象转化为Json 字符串
+		var personStr=JSON.stringify(person);
+		
+		alert(typeof personStr);
+		
+		var personObject=JSON.parse(personStr);
+		
+		alert(typeof personObject);
+		
+</script>
+</head>
+<body>
+		<h1>内容！</h1>
+		<a href="TestCookie">测试cookie</a>
+
+</body>
+</html>

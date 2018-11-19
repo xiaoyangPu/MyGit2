@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Books>
+	<Book/>
+	<Book id="1">
+		<!-- 特殊字符的处理： 
+				①转义字符
+				②使用CDATA块包裹
+		 -->
+		<BookName name="&lt;English&gt;"/>
+	</Book>
+	<Book id="2">
+		<!-- <![CDATA[<吴承恩>]]> -->
+		<BookName><![CDATA[<吴承恩>]]></BookName>
+	</Book>
+</Books>

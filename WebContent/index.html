@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>首页</title>
+<script type="text/javascript" src="/0906_Javaweb/scripts/jquery-1.9.1.min.js"></script>
+<script type="text/javascript">
+		$(function(){
+			
+			$("#myLink").click(function(){
+				
+				var url=$(this).attr("href");
+				
+				$.ajax({
+					type:"GET",
+					url:url,
+					success:function(data){
+						// data是一个JsonStr;
+					var emps=JSON.parse(data);
+					
+					//alert(emps);
+					
+					// 遍历emps中的数据
+					var tableStr="<tr bgcolor='#FFFF00'><td>ID</td><td>LASTNAME</td><td>GENDER</td><td>EMAIL</td></tr>";
+					
+					for(var i=0;i<emps.length;i++){
+						
+						tableStr+="<tr bgcolor='#FFFF00'><td>"+emps[i].id+"</td><td>"+emps[i].lastName+"</td><td>"+emps[i].gender+"</td><td>"+emps[i].email+"</td></tr>";  
+						
+					}
+					
+					$("#mytable").html(tableStr);
+					
+					}
+					
+				});
+				
+				// 取消链接的跳转！
+				return false;
+				
+			});
+			
+		});
+
+</script>
+</head>
+<body bgcolor="pink">
+	<h1>欢迎登录</h1><br/>
+			<!-- 提交到哪个url
+					hello:  一个相对路径! 相对于所在的index.html的路径！
+							    http://localhost:8080/0906_Javaweb/ index.html
+							    
+							    http://localhost:8080/0906_Javaweb/hello
+							    
+					/hello : 绝对路径！
+								/ 由浏览器解析，解析完是http://localhost:8080/hello
+								
+				post方式，将参数放入请求体中！
+						查看报文： 在chrome浏览器，按下F12
+													
+							    
+			 -->
+			<form action="/0906_Javaweb/hello" method="get">
+					用户名称 <input name="username" value="jack"/><br/>
+					用户密码 <input name="password" value="123"/><br/>
+					<input type="submit" value="提交"/>
+			</form>
+			
+			<a id="myLink" href="sendAjax">使用Ajax来请求Json数据</a>
+			
+			<table id="mytable"></table>
+
+</body>
+</html>
